@@ -1,46 +1,59 @@
 package com.jobs.application;
 
+import java.util.List;
+
+import com.jobs.domain.AbsStaffMember;
+import com.jobs.domain.Boss;
 import com.jobs.domain.Employee;
-import com.jobs.persistence.EmployeeRepository;
+import com.jobs.domain.Manager;
+import com.jobs.domain.Volunteer;
+import com.jobs.persistence.StaffMemberRepository;
 
 public class JobsController {
 
-	private EmployeeRepository repository;
+	private StaffMemberRepository repository;
 	
 	public JobsController(){
-		
+		this.repository = new StaffMemberRepository();
 	}
 	
 	public void createBossEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{		
-		Employee boss = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateBoss());
+		Employee boss = new Boss(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateBoss());
 		repository.addMember(boss);
 	}
 	
 	public void createEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{		
-		Employee boss = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployee());
-		repository.addMember(boss);
+		Employee employee = new Employee(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateEmployee());
+		repository.addMember(employee);
 	}
 
 	public void createManagerEmployee(String name, String address, String phone, double salaryPerMonth) throws Exception{
-		// TODO Auto-generated method stub
-		
+		Employee manager = new Manager(name, address, phone,  salaryPerMonth, PaymentFactory.createPaymentRateManager());
+		repository.addMember(manager);		
 	}
 
-
-	public void payAllEmployeers() {
-		// TODO Auto-generated method stub
+	public void createVolunteer(String name, String address, String phone, String description) throws Exception{
+		Volunteer volunteer = new Volunteer(name, address, phone,  description);
+		repository.addMember(volunteer);		
+	}
 	
-	}
-
-	public String getAllEmployees() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void createVolunteer(String string, String string2, String string3) {
-		// TODO Auto-generated method stub
+	public void payAllEmployees() {
+		
+		List<AbsStaffMember> membersList = this.repository.getAllMembers();
+		
+		for(AbsStaffMember a : membersList ) {
+			a.pay();
+		}
 		
 	}
+
+	public List<AbsStaffMember> getAllMembers() {
+
+		return this.repository.getAllMembers();
+		
+	}
+
+
 	
 	
 	

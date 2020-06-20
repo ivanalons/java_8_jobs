@@ -26,4 +26,26 @@ public abstract class AbsStaffMember {
 	}
 
 	public abstract void pay();
+
+	public int getId() {
+		return this.id;
+	}
+	
+	public String getName() {
+		return name;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public double getTotalPaid() {
+		return totalPaid;
+	}
+	
+	
 }
