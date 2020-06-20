@@ -19,7 +19,8 @@ public class View {
 		String output = "";
 		
 		for(AbsStaffMember member : this.members) {
-		
+			
+			output += member.getId()+". ";
 			output += "["+member.getClass().getSimpleName().toUpperCase() +"]";
 			output += "\n";
 			output += " Nom: ["+ member.getName() + "],";
