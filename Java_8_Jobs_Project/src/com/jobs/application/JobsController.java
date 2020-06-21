@@ -53,6 +53,11 @@ public class JobsController {
 		
 	}
 
+	public void removeAllEmployees() {
+		
+		this.repository.removeAllMembers();
+		
+	}
 
 	
 	

@@ -23,5 +23,7 @@ public class StaffMemberRepository {
 		members.add(member);
 	}
 	
-	
+	public void removeAllMembers() {
+		this.members.removeAll(this.members);
+	}
 }

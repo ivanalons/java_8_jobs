@@ -35,14 +35,20 @@ public class View {
 			
 			if( member instanceof Employee) {
 				Employee e = (Employee) member;
+				String strPaymentRate = String.format("%.2f",(member.getTotalPaid()/e.getSalaryPerMonth()));
+				
 				output += " Salari_Mensual: ["+ e.getSalaryPerMonth() +"],";
-				output += " Payment_Rate: ["+ (member.getTotalPaid()/e.getSalaryPerMonth()) +"],";
+				output += " Payment_Rate: ["+ strPaymentRate +"],";
 			}
 			
-			output += " Total_Pagat: [" + member.getTotalPaid() +"]";
+			String strTotalPaid = String.format("%.2f", member.getTotalPaid());
+
+			output += " Total_Pagat: [" + strTotalPaid +"]";
 			
 			output += "\n\n";
 		}
+		
+		if (output.equals("")) output="No hi ha cap empleat enregistrat.";
 		
 		return output;
 		

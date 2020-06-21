@@ -7,7 +7,9 @@ public class Volunteer extends AbsStaffMember {
 	public Volunteer(String name, String address, String phone, String description) throws Exception {
 		super(name, address, phone);
 		this.description = description;
-		if(description=="") throw new Exception();
+		if(description.equals("")) throw new Exception("El camp amb la DESCRIPCIO de l'empleat voluntari no pot estar buit.");
+		
+		super.incrementId();
 	}
 
 	

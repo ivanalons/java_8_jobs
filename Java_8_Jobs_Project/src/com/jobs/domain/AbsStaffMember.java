@@ -12,19 +12,23 @@ public abstract class AbsStaffMember {
 
 	public AbsStaffMember(String name, String address, String phone) throws Exception {
 		if (name.equals(""))
-			throw new Exception();
+			throw new Exception("El camp amb el NOM de l'empleat no pot estar buit.");
 		if (address.equals(""))
-			throw new Exception();
+			throw new Exception("El camp amb l'ADREÇA de l'empleat no pot estar buit.");
 		if (phone.equals(""))
-			throw new Exception();
+			throw new Exception("El camp amb el TELEFON de l'empleat no pot estar buit.");
 
 		this.name = name;
 		this.address = address;
 		this.phone = phone;
+		
+	}
+
+	public void incrementId() {
 		id = COUNTER_MEMBERS;
 		COUNTER_MEMBERS++;
 	}
-
+	
 	public abstract void pay();
 
 	public int getId() {
