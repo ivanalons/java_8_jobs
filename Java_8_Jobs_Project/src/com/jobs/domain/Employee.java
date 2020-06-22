@@ -17,7 +17,13 @@ public class Employee extends AbsStaffMember {
 		super.incrementId();
 	}
 
-	
+	/**
+	 * Paga a cada empleat una tasa de pagament segons la seva categoria
+	 * Com que l'atribut "paymentRate" ja conté una implementació del mètode "pay" segons la categoria 
+	 * de l'empleat (Boss, Manager o Employee) no cal sobreescriure el mètode a les subclasses de Employee
+	 * perque aquest atribut ja encapsula el comportament del metode "pay" de l'objecte actual
+	 * 
+	 */
 	@Override
 	public void pay() {
 		totalPaid =paymentRate.pay(salaryPerMonth); //Només es guarda mensualitat

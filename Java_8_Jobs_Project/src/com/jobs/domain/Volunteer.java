@@ -4,6 +4,16 @@ public class Volunteer extends AbsStaffMember {
 	
 	String description;
 
+	/**
+	 * El membre Volunteer no necessita cap atribut IPaymentRate perquè no cobra cap remuneració
+	 * a diferència dels objectes de tipus Employee
+	 * 
+	 * @param name
+	 * @param address
+	 * @param phone
+	 * @param description
+	 * @throws Exception
+	 */
 	public Volunteer(String name, String address, String phone, String description) throws Exception {
 		super(name, address, phone);
 		this.description = description;
@@ -13,6 +23,9 @@ public class Volunteer extends AbsStaffMember {
 	}
 
 	
+	/**
+	 * El total pagat al personal de tipus Volunteer sempre serà zero
+	 */
 	@Override
 	public void pay() {
 		

@@ -37,6 +37,10 @@ public class JobsController {
 		repository.addMember(volunteer);		
 	}
 	
+	/**
+	 * Executa el mètode pay() de tot el personal(employees i volunteers) contingut al repositori
+	 * 
+	 * */	
 	public void payAllEmployees() {
 		
 		List<AbsStaffMember> membersList = this.repository.getAllMembers();

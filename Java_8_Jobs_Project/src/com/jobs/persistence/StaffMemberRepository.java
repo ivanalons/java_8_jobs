@@ -23,6 +23,9 @@ public class StaffMemberRepository {
 		members.add(member);
 	}
 	
+	/**
+	 * Elimina tots els objectes del atribut-llista "members"
+	 */
 	public void removeAllMembers() {
 		this.members.removeAll(this.members);
 	}

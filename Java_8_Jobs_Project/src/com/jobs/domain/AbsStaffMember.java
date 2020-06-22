@@ -29,6 +29,9 @@ public abstract class AbsStaffMember {
 		COUNTER_MEMBERS++;
 	}
 	
+	/**
+	 * Mètode abstracte que s'ha d'implementar a les subclasses (Employees o Volunteers)
+	 */
 	public abstract void pay();
 
 	public int getId() {

@@ -7,8 +7,8 @@ import com.jobs.application.JobsController;
 public class InputManager {
 
 	Scanner input;
-	InputCommons commons;
-	JobsController controller;
+	InputCommons commons; // Encapsula les operacions bàsiques de gestió d'entrada de dades per part de l'usuari
+	JobsController controller; // Es necessita per a crear un empleat quan l'usuari ho demani
 	
 	public InputManager(JobsController controller) {
 		this.input = new Scanner(System.in);
@@ -68,6 +68,12 @@ public class InputManager {
 		
 	}
 	
+	/**
+	 * Crea un nou empleat o un nou voluntari amb les dades introduides per part de l'usuari
+	 * Es crea els objectes mitjançant el controlador JobsController el qual ja encapsula el comportament
+	 * d'afegir aquests nous objectes al repositori com.jobs.persistence.StaffMemberRepository
+	 * 
+	 */
 	private void createEmployee() {
 		
 		System.out.println("------------------------");
@@ -113,6 +119,14 @@ public class InputManager {
 		
 	}
 	
+	/**
+	 *  Crea un objecte de tipus Employee i l'afegeix al repositori d'objectes AbsStaffMember
+	 * @param option
+	 * @param name
+	 * @param address
+	 * @param phone
+	 * @throws Exception
+	 */
 	private void createEmployee(int option, String name,String address,String phone) throws Exception{
 		
 		double salaryPerMonth = commons.askDouble("Introdueix el SALARI MENSUAL de l'empleat:");
@@ -127,6 +141,13 @@ public class InputManager {
 		
 	}
 	
+	/**
+	 *  Crea un objecte de tipus Volunteer i l'afegeix al repositori d'objectes AbsStaffMember
+	 * @param name
+	 * @param address
+	 * @param phone
+	 * @throws Exception
+	 */
 	private void createVolunteer(String name, String address, String phone) throws Exception{
 		String description = commons.askString("Introdueix la DESCRIPCIÓ de l'empleat voluntari:");
 
@@ -134,6 +155,11 @@ public class InputManager {
 		
 	}
 	
+	/**
+	 * Calcula el total a pagar a partir del salari mensual (si en tenen) invocant el mètode pay() 
+	 * de tots els empleats i/o voluntaris 
+	 * A continuació es mostra per consola tot el llistat amb els empleats i tota la seva informació enregistrada
+	 */
 	private void payAndShowAllEmployees() {
 		
 		System.out.println("-------------------");
@@ -148,6 +174,9 @@ public class InputManager {
 		commons.pause();
 	}
 	
+	/**
+	 * Elimina tots les empleats(membres del personal) del repositori StaffMemberRepository
+	 */
 	private void removeAllEmployees() {
 		
 		this.controller.removeAllEmployees();

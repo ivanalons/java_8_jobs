@@ -78,6 +78,14 @@ public class InputCommons {
 		return option;
 	}
 	
+	/**
+	 * Es demana a l'usuari que introdueixi un número amb o sense decimals per consola
+	 * Mentre el valor introduït per l'usuari no tingui un format numèric correcte es continua demanant
+	 * que introduiexi el número de nou per consola
+	 * 
+	 * @param questionMessage : missage a mostrar per consola previament a la introducció del número
+	 * @return
+	 */
 	public double askDouble(String questionMessage) {
 		
 		double number = 0;

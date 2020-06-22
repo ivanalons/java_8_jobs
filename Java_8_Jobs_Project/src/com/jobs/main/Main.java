@@ -10,6 +10,9 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 	
 		/*
+		
+		//CODI SENSE ENTRADA DE DADES PER PART DE L'USUARI
+		 
 		controller.createBossEmployee("Pepe Boss", "Dirección molona", "666666666", 100.0);
 		controller.createEmployee("Pedro Employee", "Dirección molona 2", "665266666", 40.0);
 		controller.createEmployee("Laura Employee", "Dirección molona 3", "625266666", 45.0);
@@ -23,6 +26,8 @@ public class Main {
 		
 		System.out.println(allEmployees);
 		*/
+		
+		//CODI AMB ENTRADA DE DADES PER PART DE L'USUARI
 		
 		InputManager ui = new InputManager(controller);
 		

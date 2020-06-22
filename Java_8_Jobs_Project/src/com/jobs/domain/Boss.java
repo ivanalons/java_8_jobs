@@ -6,4 +6,7 @@ public class Boss extends Employee {
 		super(name, address, phone, salaryPerMonth, paymentRate);
 	}
 	
+	/**
+	 * El compotament del mètode "pay" de la classe "Boss" ja està implementat a la superclasse Employee 
+	 */
 }
